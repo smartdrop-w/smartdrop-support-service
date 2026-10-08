@@ -1,25 +1,39 @@
 ﻿# smartdrop-support-service
 
-> **SmartDrop â€” IoT Liquid Monitoring & Quality Management**  
-> UPC â€” Fundamentos de Arquitectura de Software (2026-20)  
-> Autor: **Luis Alonso Huaco Oliva**
+> **SmartDrop - IoT Liquid Monitoring & Quality Management**  
+> *UPC - Fundamentos de Arquitectura de Software (2026-20)*  
+> *Autor Responsable:* **Luis Alonso Huaco Oliva**
 
-## ðŸ“‹ Descripcion
-SmartDrop Support Microservice: Alertas de emergencia, Tickets de soporte e Incidentes
+---
 
-## ðŸš€ Ejecucion Rapida (Zero Friction)
-Para iniciar el servicio localmente:
-``bash
-# En Windows PowerShell
+## Descripcion General
+
+Microservicio de soporte tecnico y gestion de incidencias, encargado de la generacion de alertas criticas de emergencia, resolucion de tickets y notificaciones a usuarios.
+
+---
+
+## Ejecucion en Entorno Local
+
+Para compilar y ejecutar el proyecto localmente sin preconfiguraciones externas:
+
+``powershell
+# Compilacion y arranque con Maven Wrapper
 ./mvnw spring-boot:run
 ``
 
-* **Puerto Local:** $(System.Collections.Hashtable.Port)
-* **Swagger UI:** [http://localhost:8084/swagger-ui/index.html](http://localhost:8084/swagger-ui/index.html)
-* **OpenAPI Docs:** [http://localhost:8084/v3/api-docs](http://localhost:8084/v3/api-docs)
-* **Health Check Probe:** [http://localhost:8084/api/v1/health](http://localhost:8084/api/v1/health)
+## Configuracion de Puertos y Endpoints
 
-## ðŸ§ª Pruebas Automatizadas
-``bash
+* **Puerto Local:** 8084
+* **Swagger UI:** [http://localhost:8084/swagger-ui/index.html](http://localhost:8084/swagger-ui/index.html)
+* **OpenAPI Especificacion JSON:** [http://localhost:8084/v3/api-docs](http://localhost:8084/v3/api-docs)
+* **Health Check Liveness Probe:** [http://localhost:8084/api/v1/health](http://localhost:8084/api/v1/health)
+
+---
+
+## Pruebas Automatizadas
+
+Para validar la suite de pruebas unitarias y de integracion:
+
+``powershell
 ./mvnw test
 ``
