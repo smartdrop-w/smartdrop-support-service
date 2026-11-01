@@ -22,10 +22,10 @@ public class SupportServiceApplication {
             String swaggerUrl = "http://localhost:" + port + "/swagger-ui/index.html";
             System.out.println("\n" +
                 "╔════════════════════════════════════════════════════╗\n" +
-                "║     🛎️  SmartDrop Support Service Activo           ║\n" +
+                "║     SmartDrop Support Service Activo           ║\n" +
                 "╠════════════════════════════════════════════════════╣\n" +
-                "║  📖 Swagger UI: " + String.format("%-35s", swaggerUrl) + "║\n" +
-                "║  🗄️  Puerto:     " + String.format("%-35s", port) + "║\n" +
+                "║  Swagger UI: " + String.format("%-35s", swaggerUrl) + "║\n" +
+                "║  Puerto:     " + String.format("%-35s", port) + "║\n" +
                 "╚════════════════════════════════════════════════════╝\n");
         };
     }
