@@ -28,7 +28,13 @@ public record IncidentReport(
     }
 
     public IncidentReport resolve() {
-        return new IncidentReport(incidentId, adminId, title, description, status, createdAt, LocalDateTime.now());
+        return new IncidentReport(incidentId, adminId, title, description, "RESOLVED", createdAt, LocalDateTime.now());
+    }
+
+    public IncidentReport withStatus(String newStatus) {
+        LocalDateTime resolvedTime = "RESOLVED".equalsIgnoreCase(newStatus)
+                ? (resolvedAt != null ? resolvedAt : LocalDateTime.now())
+                : null;
+        return new IncidentReport(incidentId, adminId, title, description, newStatus, createdAt, resolvedTime);
     }
 }
-

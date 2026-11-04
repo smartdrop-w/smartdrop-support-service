@@ -74,5 +74,18 @@ public class SupportService {
     public List<IncidentReport> getAllIncidentReports() {
         return notificationRepository.findAllIncidentReports();
     }
-}
 
+    public IncidentReport updateIncidentReportStatus(Integer incidentId, String status) {
+        IncidentReport current = notificationRepository.findIncidentReportById(incidentId)
+                .orElseThrow(() -> new IllegalArgumentException("Incident report not found: " + incidentId));
+        IncidentReport updated = current.withStatus(status);
+        return notificationRepository.saveIncidentReport(updated);
+    }
+
+    public IncidentReport resolveIncidentReport(Integer incidentId) {
+        IncidentReport current = notificationRepository.findIncidentReportById(incidentId)
+                .orElseThrow(() -> new IllegalArgumentException("Incident report not found: " + incidentId));
+        IncidentReport resolved = current.resolve();
+        return notificationRepository.saveIncidentReport(resolved);
+    }
+}
