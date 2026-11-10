@@ -1,9 +1,20 @@
 @support @incidents
-Feature: US09 - Support Ticket Creation and Incident Dispatch
-  As an authenticated SmartDrop user
-  I want to submit support requests and report hardware or hydraulic incidents
-  So that customer success and field technicians can track and resolve issues.
+Feature: US09 - Support Ticket Submission and Technical Incident Reporting
+  As an authenticated SmartDrop user or system administrator
+  I want to submit support requests and record technical incidents
+  So that customer care and maintenance staff can track, assign, and remediate technical faults.
 
-  Scenario: Creating an urgent support ticket for sensor malfunction
-    When the client posts a ticket with subject "Sensor ESP32 desconectado" and priority "HIGH"
-    Then the ticket should be assigned state "OPEN" with an SLA response window of 4 hours
+  Background:
+    Given the SmartDrop support service is operational
+    And the user has ID 3001
+
+  Scenario: Submitting an urgent support ticket for sensor malfunction
+    When the client posts a support ticket with subject "Sensor ESP32 desconectado", priority "HIGH", and description "Perdida de senal de flujo"
+    Then the ticket should be registered successfully
+    And the ticket priority should be "HIGH"
+    And the ticket status should be "OPEN"
+
+  Scenario: Creating a technical incident report by system administrator
+    When the administrator creates an incident report titled "Falla en valvula solenoide 3" with description "Bloqueo de apertura" and status "OPEN"
+    Then the incident report should be created successfully
+    And the incident report status should be "OPEN"
